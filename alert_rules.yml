@@ -8,18 +8,3 @@ groups:
       severity: warning
     annotations:
       summary: Irregularity in kafka message rate for one minute on topic "kafkatopic1" # You can customize this message
-
-  - alert: MessageAlertOnTopic2OfGroup1
-    expr: kafka_minion_group_topic_lag{group="group1", topic="topic2"} > 1500000
-    labels:
-      severity: warning
-    annotations:
-      summary: More than 1.5 million messages on topic2 of group1
-
-  - alert: MessageAlertOnTopic3OfGroup2
-    expr: kafka_minion_group_topic_lag{group="group2", topic="topic3"} > 400000
-    for: 10m
-    labels:
-      severity: warning
-    annotations:
-      summary: More than 400k messages on topic3 of group2
