@@ -1,0 +1,20 @@
+route:
+  receiver: 'default-receiver'
+  group_wait: 30s
+  group_interval: 30s
+  repeat_interval: 2m
+  group_by: [alertname]
+
+receivers:
+- name: 'email_notifications'
+  email_configs:
+  - to: 'receiver1@example.com, receiver2@example.com'
+    from: sender@example.com
+    smarthost: smtp.gmail.com:587
+    auth_username: sender@example.com
+    auth_identity: sender@example.com
+    auth_password: password
+    send_resolved: true
+
+matchers:
+  - severity: warning
